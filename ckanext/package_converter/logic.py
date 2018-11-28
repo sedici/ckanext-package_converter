@@ -86,7 +86,7 @@ def export_as_record(id, output_format_name, context = {}, type='package'):
         ckan_format_name = 'ckan_resource'
         dataset_dict = toolkit.get_action('resource_show')(context, {'id': id})
         # include package data to inherit
-        package_id = dataset_dict.get('package_id')
+        package_id = dataset_dict.get('id')
         if package_id:
             package_dict = toolkit.get_action('package_show')(context, {'id': package_id})
             dataset_dict['package_dict'] = package_dict
