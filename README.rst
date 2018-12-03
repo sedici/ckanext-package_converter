@@ -85,7 +85,7 @@ via the configuration file. For example::
 CKAN Default Dataset Converter
 -------------------------------
 
-If you want to translate from the `default CKAN dataset schema <https://github.com/ckan/ckanext-scheming/blob/a825d6dc98bfae15379290136b21c3a176099a7b/ckanext/scheming/ckan_dataset.json#L1>` to Datacite Scheme (v3.1), you must configure this custom converter at you development.ini or production.ini file:
+If you want to translate from the `default CKAN dataset schema <https://github.com/ckan/ckanext-scheming/blob/a825d6dc98bfae15379290136b21c3a176099a7b/ckanext/scheming/ckan_dataset.json#L1>`__ to Datacite Scheme (v3.1), you must configure this custom converter at you development.ini or production.ini file:
 
 .. code:: ini
 
