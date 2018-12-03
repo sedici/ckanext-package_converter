@@ -4,7 +4,9 @@
   {{ super() }}
 
    <a href="{{ h.url_for('package_export', package_id=pkg.name, file_format='datacite', extension='xml')}}" class="btn"><i class="fa fa-icon fa-file-text"></i>{{ _(' DataCite ')}}</a>
+   {# 'iso19139' and 'gcmd_dif' metadata formats are not working...
    <a href="{{ h.url_for('package_export', package_id=pkg.name, file_format='iso19139', extension='xml')}}" class="btn"><i class="fa fa-icon fa-file-text"></i>{{ _(' ISO 19139 ')}}</a>
    <a href="{{ h.url_for('package_export', package_id=pkg.name, file_format='gcmd_dif', extension='xml')}}" class="btn"><i class="fa fa-icon fa-file-text"></i>{{ _(' GCMD DIF ')}}</a>
+      #}
 
 {% endblock %}
