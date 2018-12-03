@@ -81,6 +81,16 @@ via the configuration file. For example::
     package_converter.converters = ckanext.package_converter.model.scheming_converter.Datacite31SchemingConverter
   
 
+-------------------------------
+CKAN Default Dataset Converter
+-------------------------------
+
+If you want to translate from the `default CKAN dataset schema <https://github.com/ckan/ckanext-scheming/blob/a825d6dc98bfae15379290136b21c3a176099a7b/ckanext/scheming/ckan_dataset.json#L1>` to Datacite Scheme (v3.1), you must configure this custom converter at you development.ini or production.ini file:
+
+.. code:: ini
+
+   # full path to converters (optional)
+    package_converter.converters =  ckanext.package_converter.custom.default_ckan_scheming_converter.DefaultCKANDatacite31SchemingConverter
 
 ------------------------
 Development Installation
