@@ -37,14 +37,15 @@ class DefaultCKANDatacite31SchemingConverter(Datacite31SchemingConverter):
             datacite_dict['resource'][datacite_publication_year_tag] = {'#text': dataset_dict['metadata_created'] }
 
         #Creators
-        #For CKAN there is only one creator
+        #For CKAN there is only one creator field. If multiple creators are specified in this field, try to split using ";"
         if self._is_defined_metadata('author', dataset_dict):
             datacite_creators_tag = 'creators'
             datacite_creator_tag = 'creator'
-            datacite_dict['resource'][datacite_creators_tag] = { datacite_creator_tag: [ ] }
-            datacite_creator = collections.OrderedDict()
-            datacite_creator['creatorName'] = {'#text': dataset_dict['author']}
-            datacite_dict['resource'][datacite_creators_tag][datacite_creator_tag] += [ datacite_creator ]
+            datacite_dict['resource'][datacite_creators_tag] = {datacite_creator_tag : []}
+            for author in dataset_dict['author'].split(';'):
+                datacite_creator = collections.OrderedDict()
+                datacite_creator['creatorName'] = author.strip()
+                datacite_dict['resource'][datacite_creators_tag][datacite_creator_tag] += [ datacite_creator ]
 
         # Subjects
         if self._is_defined_metadata('tags', dataset_dict):
