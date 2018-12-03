@@ -103,7 +103,7 @@ class DefaultCKANDatacite31SchemingConverter(Datacite31SchemingConverter):
             datacite_dict['resource'][datacite_version_tag] = {'#text': dataset_dict['version'] }
 
         # Alternate Identifier (CKAN URL)
-        ckan_package_url = config.get('ckan.site_url','') + toolkit.url_for(controller='package', action='read', id=dataset_dict.get('name', ''))
+        ckan_package_url = config.get('ckan.site_url','') + toolkit.url_for(controller='package', action='read', id=dataset_dict.get('id', ''))
         datacite_dict['resource']['alternateIdentifiers']={'alternateIdentifier':[{'#text':ckan_package_url, '@alternateIdentifierType':'URL'}]}
 
          # Rights

@@ -36,7 +36,9 @@
 				<!-- 1. IDENTIFIER: 2-n, DOI and Landing Page -->
 				<!-- 1.1 DOI: "doi:10.xxx/yyyy / doi" -->
 				<!-- 1.1 DOI: "10.xxx/yyyy" -->
-				<dc:identifier><xsl:value-of select="d:resource/d:identifier[@identifierType='DOI']" /></dc:identifier>
+				<xsl:if test="d:resource/d:identifier[@identifierType='DOI']">
+					<dc:identifier><xsl:value-of select="d:resource/d:identifier[@identifierType='DOI']" /></dc:identifier>
+				</xsl:if>
 				<!-- 1.2 Landing Page URI -->
 				<dc:identifier><xsl:value-of select="d:resource/d:alternateIdentifiers/d:alternateIdentifier[@alternateIdentifierType='URL']" /></dc:identifier>				
 				
@@ -64,9 +66,11 @@
 		</xsl:for-each>
 
 		<!-- 4. PUBLISHER: 1 -->
-		<dc:publisher>
-			<xsl:value-of select="d:publisher" />
-		</dc:publisher>
+		<xsl:if test="d:publisher">
+			<dc:publisher>
+				<xsl:value-of select="d:publisher" />
+			</dc:publisher>
+		</xsl:if>
 
 		<!-- 5. DATE -->
 		<!-- 5.1 Publication Year: 1 -->
@@ -156,6 +160,11 @@
 			<dc:rights>
 				<xsl:value-of select="." />
 			</dc:rights>
+			<xsl:if test="@rightsURI">
+				<dc:rights>
+					<xsl:value-of select="@rightsURI" />
+				</dc:rights>
+			</xsl:if>
 		</xsl:for-each>
 
 		<!-- 12. DESCRIPTION: 0-N -->
