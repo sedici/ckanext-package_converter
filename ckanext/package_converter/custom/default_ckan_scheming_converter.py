@@ -116,7 +116,7 @@ class DefaultCKANDatacite31SchemingConverter(Datacite31SchemingConverter):
             datacite_dict['resource'][datacite_rights_group_tag] = {datacite_rights_tag: [datacite_rights_item] }
 
         # Description (Abstract)
-        if self._is_defined_metadata('note',dataset_dict):
+        if self._is_defined_metadata('notes',dataset_dict):
             datacite_descriptions_tag = 'descriptions'
             datacite_description_tag = 'description'
             datacite_description = {'#text': dataset_dict['notes'], '@descriptionType': 'Abstract'}
